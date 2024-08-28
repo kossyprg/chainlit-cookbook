@@ -19,6 +19,24 @@ The provided code integrates Stability AI's image generation capabilities with C
 4. Use the `generate_image` function to create a new image from a text prompt.
 5. Use the `edit_image` function to edit an existing image with a new prompt.
 
+## Run the app in a Docker environment
+
+1. Build the Docker image
+
+Before you build the Docker image, please ensure that the Stability AI API key and OpenAI API key are specified in the .env file.
+
+```bash
+docker build -t image-gen .
+```
+
+2. Start the container
+
+```bash
+docker run -p 8000:8000 image-gen
+```
+
+3. Access the application
+
 ## Functions
 
 - `generate_image(prompt: str)`: Generates an image from a text prompt and returns the image name.

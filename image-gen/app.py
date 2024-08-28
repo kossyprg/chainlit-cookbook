@@ -8,6 +8,26 @@ import chainlit as cl
 from chainlit.action import Action
 from chainlit.input_widget import Select, Switch, Slider
 
+@cl.set_starters
+async def set_starters():
+    return [
+        cl.Starter(
+            label="Snowy swiss mountains",
+            message="Anime style snowy swiss mountains lit by the moon. Clear night sky. HD.",
+        ),
+        cl.Starter(
+            label="Dense forest",
+            message="A dense forest with trees, with sunlight streaming through. Clear sunny day. HD.",
+        ),
+        cl.Starter(
+            label="City street at night",
+            message="Anime style bustling city street at night with glowing neon lights. Crowds of people walking under a clear sky. HD.",
+        ),
+        cl.Starter(
+            label="Cute trumpeter",
+            message="A cute Japanese high school girl with a ponytail is playing the trumpet in a music room. HD.",
+        )
+    ]
 
 @cl.action_callback("Create variation")
 async def create_variant(action: Action):
@@ -36,8 +56,8 @@ async def start():
             Select(
                 id="Model",
                 label="OpenAI - Model",
-                values=["gpt-3.5-turbo", "gpt-3.5-turbo-16k", "gpt-4", "gpt-4-32k"],
-                initial_index=1,
+                values=["gpt-3.5-turbo", "gpt-4", "gpt-4o", "gpt-4o-mini"],
+                initial_index=0,
             ),
             Switch(id="Streaming", label="OpenAI - Stream Tokens", initial=True),
             Slider(
